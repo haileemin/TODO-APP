@@ -3,10 +3,17 @@ import React from 'react'
 import "./TaskCard.css"
 import Tag from './Tag'
 import deleteIcon from '../assets/delete.png'
+// import { RiExchangeBoxFill } from "react-icons/ri";
 
-const TaskCard = ({ title, tags, handleDelete, index }) => {
+
+const TaskCard = ({ title, tags, handleDelete, index, setActiveCard }) => {
     return (
-        <article className='task_card'>
+        <article
+            className='task_card'
+            draggable
+            onDragStart={() => setActiveCard(index)}
+            onDragEnd={() => setActiveCard(null)}
+        >
             <p className='task_text'>{title}</p>
 
             <div className='task_card_bottom_line'>
@@ -15,6 +22,11 @@ const TaskCard = ({ title, tags, handleDelete, index }) => {
                         tags.map((tag, index) => (<Tag key={index} tagName={tag} selected />))
                     }
                 </div>
+                {/* <div
+                    className='task_change'
+                    onClick={() => handleChangeStatus(index)}>   // đây là cách import icon của react mà ko cần tải 
+                    <RiExchangeBoxFill size={'20'} />
+                </div> */}
                 <div
                     className='task_delete'
                     onClick={() => handleDelete(index)}>
