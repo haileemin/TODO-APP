@@ -64,9 +64,9 @@ const TodoApp = () => {
                 {userLogin ?
                     <>
                         <span>{userLogin.email}</span>
-                        <button className='logout' onClick={handleLogout}>dăng xuất</button>
+                        <button className='logout' onClick={handleLogout}>Logout</button>
                     </> :
-                    <Link to={'/LoginSigup'}><button>đăng nhập</button></Link>
+                    <Link to={'/LoginSigup'}><button>Login</button></Link>
 
                 }
 
